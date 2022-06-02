@@ -22,6 +22,11 @@ class MyAdapter(
 
     override fun getItemCount(): Int = personList.size
 
+    fun clear(){
+        personList = mutableListOf()
+        this.notifyDataSetChanged()
+    }
+
 }
 
 class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){

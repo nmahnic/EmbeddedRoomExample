@@ -2,6 +2,7 @@ package com.nicomahnic.embeddedroomexample
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.os.persistableBundleOf
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
@@ -33,11 +34,22 @@ class MainActivity : AppCompatActivity() {
             myViewModel.insertPerson(person)
         }
 
-        btnRead.setOnClickListener {
+        btnReadAll.setOnClickListener {
             myViewModel.readPerson.observe(this) { it ->
+                personList.clear()
                 it.forEach { person ->
                     personList.add(person)
-                    adapter.notifyItemInserted(personList.size - 1 )
+                    adapter.notifyDataSetChanged()
+                }
+            }
+        }
+
+        btnRead.setOnClickListener {
+            myViewModel.readPersonByStreetName("Av. San Isidro Labrador").observe(this) { it ->
+                personList.clear()
+                it.forEach { person ->
+                    personList.add(person)
+                    adapter.notifyDataSetChanged()
                 }
             }
         }

@@ -20,14 +20,25 @@
     </androidx.recyclerview.widget.RecyclerView>
 
     <Button
+        android:id="@+id/btnReadAll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp"
+        android:text="READ ALL"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnRead"
+        app:layout_constraintStart_toEndOf="@+id/btnAdd" />
+
+    <Button
         android:id="@+id/btnRead"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
         android:layout_marginBottom="60dp"
         android:text="READ"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnAdd" />
+        app:layout_constraintStart_toEndOf="@+id/btnReadAll" />
 
     <Button
         android:id="@+id/btnAdd"
@@ -36,7 +47,7 @@
         android:layout_marginBottom="60dp"
         android:text="ADD"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnRead"
+        app:layout_constraintEnd_toStartOf="@+id/btnReadAll"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

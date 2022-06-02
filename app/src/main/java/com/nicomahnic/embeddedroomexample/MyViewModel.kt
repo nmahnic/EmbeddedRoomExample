@@ -14,6 +14,10 @@ class MyViewModel(application: Application): AndroidViewModel(application) {
 
     val readPerson: LiveData<List<Person>> = repository.readPerson
 
+    fun readPersonByStreetName(streetName: String) : LiveData<List<Person>> {
+        return repository.readPersonByStreetName(streetName)
+    }
+
     fun insertPerson(person: Person){
         viewModelScope.launch(Dispatchers.IO) {
             repository.insertPerson(person)
